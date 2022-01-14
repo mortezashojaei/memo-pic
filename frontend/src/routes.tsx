@@ -4,6 +4,7 @@ import {
   SinglePlayer,
   MultiPlayer,
   SetupSingleMode,
+  RecordsList,
 } from './pages';
 
 export const routes = [
@@ -26,5 +27,9 @@ export const routes = [
   {
     path: '/multi-player',
     element: <MultiPlayer />,
+  },
+  {
+    path: '/records-list',
+    element: <RecordsList />,
   },
 ];
