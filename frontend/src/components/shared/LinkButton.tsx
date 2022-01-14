@@ -7,6 +7,8 @@ export const LinkButton = styled(Link)`
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  font-weight: 600;
+
   :hover,
   :focus,
   :active {

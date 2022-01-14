@@ -1,9 +1,13 @@
-import { LinkButton } from '../../components';
-import { Container, ButtonsContainer, Heading } from './styled';
+import {
+  LinkButton,
+  PageHeading,
+  CenteredPageContainer,
+} from '../../components';
+import { ButtonsContainer } from './styled';
 
 export const Home = () => (
-  <Container>
-    <Heading>Memo Pic</Heading>
+  <CenteredPageContainer>
+    <PageHeading>Memo Pic</PageHeading>
     <ButtonsContainer>
       <LinkButton to="/setup-single-mode" className="button">
         Single Player
@@ -15,5 +19,5 @@ export const Home = () => (
         Records List
       </LinkButton>
     </ButtonsContainer>
-  </Container>
+  </CenteredPageContainer>
 );
