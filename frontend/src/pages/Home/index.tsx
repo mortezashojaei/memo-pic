@@ -16,7 +16,7 @@ export const Home = () => (
         Multi Player
       </LinkButton>
       <LinkButton to="/records-list" className="button">
-        Records List
+        Highscore List
       </LinkButton>
     </ButtonsContainer>
   </CenteredPageContainer>
