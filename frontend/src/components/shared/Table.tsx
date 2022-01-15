@@ -62,4 +62,16 @@ const TableContainer = styled.table`
     padding: 1.6rem 3rem;
     font-weight: 700;
   }
+
+  @media only screen and (max-width: 600px) {
+    font-size: 1.6rem;
+
+    td {
+      padding: 1.8rem;
+    }
+
+    th {
+      padding: 1.2rem 1.8rem;
+    }
+  }
 `;

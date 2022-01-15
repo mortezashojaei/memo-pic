@@ -126,3 +126,45 @@ table {
 html {
   background: #2d3436;
 }
+
+@media only screen and (max-width: 425px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media only screen and (min-width: 425px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  html {
+    font-size: 60%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  html {
+    font-size: 63.5%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  html {
+    font-size: 85%;
+  }
+}
+
+@media only screen and (min-width: 2000px) {
+  html {
+    font-size: 100%;
+  }
+}

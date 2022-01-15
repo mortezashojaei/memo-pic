@@ -14,4 +14,9 @@ export const Container = styled.section`
       background: #00b850;
     }
   }
+
+  @media only screen and (max-width: 425px) {
+    width: 32rem;
+    height: 32rem;
+  }
 `;

@@ -8,4 +8,6 @@ export const CenteredPageContainer = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
 `;
