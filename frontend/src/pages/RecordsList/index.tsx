@@ -32,9 +32,9 @@ export const RecordsList = () => {
             record: '3:30',
           },
           {
-            id: 4,
+            id: 40,
             name: 'Ali Azizi',
-            rank: 4,
+            rank: 40,
             record: '2:35',
           },
           {
