@@ -2,9 +2,9 @@ import {
   Home,
   SetupMultiMode,
   SinglePlayer,
-  MultiPlayer,
   SetupSingleMode,
   RecordsList,
+  MultiPlayer,
 } from './pages';
 
 export const routes = [
