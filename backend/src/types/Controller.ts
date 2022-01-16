@@ -1,5 +1,5 @@
-import { Request, Response } from 'express';
+import { Response, Request } from 'express';
 
-export type ControllerType = {
+export type Controller = {
   (req: Request, res: Response): void;
 };
