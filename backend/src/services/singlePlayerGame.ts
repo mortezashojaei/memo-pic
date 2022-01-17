@@ -14,6 +14,10 @@ function shuffleArray(array: Array<any>) {
     .map(({ value }) => value);
 }
 
+function getImageLinkById(id: string) {
+  return cardImages.find((image) => image.id === id).url;
+}
+
 const create = async (name: string) => {
   const newGame = new SinglePlayerGame();
   newGame.name = name;
@@ -27,7 +31,8 @@ const create = async (name: string) => {
       newCard.game = gameCreationResult;
       newCard.imageId = image.id;
       newCard.position1 = suffledPositions[index];
-      newCard.position2 = suffledPositions[positions.length - index];
+      newCard.position2 =
+        suffledPositions[suffledPositions.length - index];
       await getRepository(SinglePlayCards).save(newCard);
     });
     return gameCreationResult;
@@ -50,13 +55,63 @@ const show = async (id: number) => {
     cards: cards.map(({ position1, position2, imageId }) => ({
       position1,
       position2,
-      image: cardImages.find((image) => image.id === imageId).url,
+      image: getImageLinkById(imageId),
     })),
     game,
+  };
+};
+
+const action = async ({
+  first,
+  second,
+  gameId,
+}: {
+  first: number;
+  second: number;
+  gameId: number;
+}) => {
+  const firstCard = await getRepository(SinglePlayCards).find({
+    where: [
+      {
+        game: gameId,
+        position1: first,
+      },
+      {
+        game: gameId,
+        position2: first,
+      },
+    ],
+  });
+  const secondCard = await getRepository(SinglePlayCards).find({
+    where: [
+      {
+        game: gameId,
+        position1: second,
+      },
+      {
+        game: gameId,
+        position2: second,
+      },
+    ],
+  });
+
+  const isWin = firstCard[0].id === secondCard[0].id;
+
+  if (isWin) {
+    getRepository(SinglePlayCards).save({
+      id: firstCard[0].id,
+      isLocked: false,
+    });
+  }
+  return {
+    first: getImageLinkById(firstCard[0].imageId),
+    second: getImageLinkById(secondCard[0].imageId),
+    isWin,
   };
 };
 
 export default {
   create,
   show,
+  action,
 };

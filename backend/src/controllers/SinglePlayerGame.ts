@@ -10,7 +10,11 @@ const create: Controller = async (req, res) => {
 
     ApiResponse.result(res, { game }, httpStatusCodes.CREATED);
   } catch (e) {
-    ApiResponse.error(res, httpStatusCodes.BAD_REQUEST, e);
+    ApiResponse.error(
+      res,
+      httpStatusCodes.BAD_REQUEST,
+      'Unwanted Error',
+    );
   }
 };
 
@@ -25,7 +29,17 @@ const show: Controller = async (req, res) => {
   }
 };
 
+const action: Controller = async (req, res) => {
+  const result = await singlePlayerGameService.action({ ...req.body });
+  if (result) {
+    ApiResponse.result(res, { ...result }, httpStatusCodes.OK);
+  } else {
+    ApiResponse.error(res, httpStatusCodes.BAD_REQUEST, 'Bad Request');
+  }
+};
+
 export default {
   create,
   show,
+  action,
 };

@@ -13,4 +13,10 @@ router.post(
 
 router.get('/show/:id', SinglePlayerGame.show);
 
+router.post(
+  '/action',
+  celebrate(singlePlayerGameSchema.action),
+  SinglePlayerGame.action,
+);
+
 export default router;
