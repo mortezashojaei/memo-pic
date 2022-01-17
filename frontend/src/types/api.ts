@@ -7,6 +7,12 @@ export type SinglePlayerGameCreationResponse = ResponseBase<{
   id: number;
 }>;
 
+export type SinglePlayerGameActionResponse = ResponseBase<{
+  first: string;
+  second: string;
+  isWin: boolean;
+}>;
+
 export type GameData = {
   cards: Array<CardItem>;
   game: Array<SinglePlayerGame>;

@@ -22,5 +22,5 @@ export const useShowGame = (id: number) => {
     [],
   );
 
-  return { data, isLoading };
+  return { data, isLoading, fetchGame, setIsLoading };
 };

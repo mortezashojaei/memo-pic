@@ -12,9 +12,12 @@ export const Container = styled.section`
   }
 `;
 
-export const CardItem = styled.div<{ background?: string }>`
+export const CardItem = styled.div<{
+  background?: string;
+  checked?: boolean;
+}>`
   cursor: pointer;
-  background: #00b894;
+  background: ${(props) => (props.checked ? '#00b850' : '#00b894')};
   margin: 0.2rem;
   :hover {
     background: ${(props) => !props.background && '#00b850'};
