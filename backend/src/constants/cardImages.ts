@@ -1,4 +1,6 @@
-export const cardImages = [
+import { CardImageIdType } from '../types/Card';
+
+export const cardImages: Array<{ id: CardImageIdType; url: string }> = [
   {
     id: 'a',
     url: 'https://www.stockvault.net/data/2010/09/28/114982/preview16.jpg',

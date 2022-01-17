@@ -1,9 +1,15 @@
-import { CardPositionType, CardImageIdType } from '../types';
+import {
+  CardPositionType,
+  CardImageIdType,
+  CardImageIdes,
+  CardPositions,
+} from '../types';
 import {
   Column,
   Entity,
   JoinColumn,
-  OneToOne,
+  ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { SinglePlayerGame } from './SinglePlayerGame.entity';
@@ -13,16 +19,19 @@ export class SinglePlayCards {
   @PrimaryGeneratedColumn({ type: 'bigint' })
   id: number;
 
-  @Column()
+  @Column({ type: 'enum', enum: CardImageIdes })
   imageId: CardImageIdType;
 
-  @OneToOne(() => SinglePlayerGame)
+  @Column()
+  isLocked: boolean = true;
+
+  @ManyToOne(() => SinglePlayerGame, (game) => game.cards)
   @JoinColumn()
   game: SinglePlayerGame;
 
-  @Column()
+  @Column({ type: 'enum', enum: CardPositions })
   position1: CardPositionType;
 
-  @Column()
+  @Column({ type: 'enum', enum: CardPositions })
   position2: CardPositionType;
 }
