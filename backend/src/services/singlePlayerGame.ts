@@ -1,5 +1,5 @@
-import { cardImages } from '../constants/cardImages';
 import { getRepository } from 'typeorm';
+import { cardImages } from '../constants/cardImages';
 import { SinglePlayerGame } from '../entities/SinglePlayerGame.entity';
 import { SinglePlayCards } from '../entities/SinglePlayCards.entity';
 
@@ -36,6 +36,27 @@ const create = async (name: string) => {
   }
 };
 
+const show = async (id: number) => {
+  const game = await getRepository(SinglePlayerGame).findOne(id);
+  if (!game) return null;
+  const cards = await getRepository(SinglePlayCards).find({
+    where: {
+      game,
+      isLocked: false,
+    },
+  });
+
+  return {
+    cards: cards.map(({ position1, position2, imageId }) => ({
+      position1,
+      position2,
+      image: cardImages.find((image) => image.id === imageId).url,
+    })),
+    game,
+  };
+};
+
 export default {
   create,
+  show,
 };

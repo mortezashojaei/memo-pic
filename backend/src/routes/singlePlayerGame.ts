@@ -11,4 +11,6 @@ router.post(
   SinglePlayerGame.create,
 );
 
+router.get('/show/:id', SinglePlayerGame.show);
+
 export default router;

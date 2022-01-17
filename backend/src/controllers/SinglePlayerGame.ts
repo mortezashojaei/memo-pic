@@ -11,10 +11,21 @@ const create: Controller = async (req, res) => {
     ApiResponse.result(res, { game }, httpStatusCodes.CREATED);
   } catch (e) {
     ApiResponse.error(res, httpStatusCodes.BAD_REQUEST, e);
-    return;
+  }
+};
+
+const show: Controller = async (req, res) => {
+  const result = await singlePlayerGameService.show(
+    Number(req.params.id),
+  );
+  if (result) {
+    ApiResponse.result(res, { ...result }, httpStatusCodes.OK);
+  } else {
+    ApiResponse.error(res, httpStatusCodes.NOT_FOUND, 'Game Not Found');
   }
 };
 
 export default {
   create,
+  show,
 };
