@@ -1,5 +1,8 @@
-import { SinglePlayerGameCreationResponse } from '../types';
-import { post } from './methods';
+import {
+  SinglePlayerGameCreationResponse,
+  SinglePlayerGameShowResponse,
+} from '../types';
+import { get, post } from './methods';
 
 export const createSinglePlayerGame = (name: string) =>
   post<SinglePlayerGameCreationResponse>(
@@ -8,3 +11,6 @@ export const createSinglePlayerGame = (name: string) =>
       name,
     },
   );
+
+export const getSinglePlayerGame = (id: number) =>
+  get<SinglePlayerGameShowResponse>(`/single-player-game/show/${id}`);

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+// TODO: add input for starting timer from input datetime
 export const useTimer = (
   start: { second: number; minute: number } = {
     second: 0,
