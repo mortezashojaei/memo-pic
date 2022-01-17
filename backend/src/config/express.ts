@@ -1,5 +1,6 @@
 import * as bodyParser from 'body-parser';
 import express from 'express';
+import cors from 'cors';
 import morgan from 'morgan';
 import indexRoute from '../routes/index.route';
 import joiErrorHandler from '../middlewares/joiErrorHandler';
@@ -11,6 +12,8 @@ require('dotenv').config();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use(cors({ origin: true, credentials: true }));
 
 app.use(morgan('dev'));
 

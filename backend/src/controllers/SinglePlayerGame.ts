@@ -8,7 +8,7 @@ const create: Controller = async (req, res) => {
   try {
     game = await singlePlayerGameService.create(req.body.name);
 
-    ApiResponse.result(res, { game }, httpStatusCodes.CREATED);
+    ApiResponse.result(res, game, httpStatusCodes.CREATED);
   } catch (e) {
     ApiResponse.error(
       res,
