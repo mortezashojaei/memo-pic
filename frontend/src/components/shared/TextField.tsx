@@ -1,16 +1,22 @@
-import { FC } from 'react';
+import { ChangeEventHandler, FC } from 'react';
 import styled from 'styled-components';
 
-type Props = { name: string; label: string; className?: string };
+type Props = {
+  name: string;
+  label: string;
+  className?: string;
+  onChange?: ChangeEventHandler<{ value: string }>;
+};
 
 export const TextField: FC<Props> = ({
   name,
   label,
   className = '',
+  onChange,
 }) => (
   <div className={className}>
     <Label htmlFor={name}>{label}</Label>
-    <Input id={name} name={name} type="text" />
+    <Input onChange={onChange} id={name} name={name} type="text" />
   </div>
 );
 

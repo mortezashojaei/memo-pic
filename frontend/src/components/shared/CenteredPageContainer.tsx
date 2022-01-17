@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const CenteredPageContainer = styled.section`
+export const CenteredPageContainer = styled.section<{
+  isLoading?: boolean;
+}>`
   height: 100vh;
   width: 100%;
   box-sizing: border-box;
@@ -10,4 +12,5 @@ export const CenteredPageContainer = styled.section`
   align-items: center;
   padding-left: 2rem !important;
   padding-right: 2rem !important;
+  filter: ${(props) => (props.isLoading ? 'blur(5px)' : '')};
 `;

@@ -21,7 +21,7 @@ export const routes = [
     element: <SetupMultiMode />,
   },
   {
-    path: '/single-player',
+    path: '/single-player/:id',
     element: <SinglePlayer />,
   },
   {
